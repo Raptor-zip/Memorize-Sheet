@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>赤シート</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="/program.js"></script>
+  </head>
+
+  <body onload="first_script()">
+    <div id="content">
+      <button onclick="document.documentElement.requestFullscreen()">
+        全画面
+      </button>
+      <input id="file" type="file" name="upfile[]" webkitdirectory />
+      <div id="view"></div>
+    </div>
+  </body>
+</html>
