@@ -25,17 +25,15 @@ body {
 
 img {
     position: absolute;
-    top: 0px;
-    left: 0px;
-    float: left;
     width: 100%;
 }
 
 #redsheet-truth {
-    z-index: 100;
+    z-index: 10000;
     position: absolute;
-    top: 0px;
-    left: 0px;
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
     width: 90%;
     height: 80%;
     background-color: rgb(249, 255, 207);
@@ -43,10 +41,11 @@ img {
 }
 
 #redsheet-false {
-    z-index: 102;
+    z-index: 2147483646;
     position: absolute;
-    top: 0px;
-    left: 0px;
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
     width: 90%;
     height: 80%;
     resize: both;
@@ -54,10 +53,7 @@ img {
     cursor: move;
 }
 
-#page-1_background {
-    z-index: 99;
-}
-
-#page-1_black {
-    z-index: 101;
+#setting {
+    position: fixed;
+    z-index: 2147483647;
 }

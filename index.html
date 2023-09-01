@@ -10,10 +10,16 @@
 
   <body onload="first_script()">
     <div id="content">
-      <button onclick="document.documentElement.requestFullscreen()">
-        全画面
-      </button>
-      <input id="file" type="file" name="upfile[]" webkitdirectory />
+      <div id="setting">
+        <button onclick="document.documentElement.requestFullscreen()">
+          全画面
+        </button>
+        <button onclick="memorization_sheet_resize(100,0)">横に大きく</button>
+        <button onclick="memorization_sheet_resize(-100,0)">横に小さく</button>
+        <button onclick="memorization_sheet_resize(0,100)">縦に大きく</button>
+        <button onclick="memorization_sheet_resize(0,-100)">縦に小さく</button>
+        <input id="file" type="file" name="upfile[]" webkitdirectory />
+      </div>
       <div id="view"></div>
     </div>
   </body>
