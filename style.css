@@ -25,9 +25,6 @@ body {
 
 img {
     position: absolute;
-    top: 0px;
-    left: 0px;
-    float: left;
     width: 100%;
 }
 
