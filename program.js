@@ -27,7 +27,7 @@ function first_script() {
         }
     });
 
-    //赤シート移動
+    //赤シートを移動させる
     //要素の取得
     var element = document.getElementById("redsheet-false");
     console.log(element);
