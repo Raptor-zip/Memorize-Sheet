@@ -1,0 +1,31 @@
+{
+  "name": "memorize-sheet",
+  "version": "1.0.0",
+  "description": "暗記シートWebアプリ",
+  "main": "program.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Raptor-zip/Memorize-Sheet.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Raptor-zip/Memorize-Sheet/issues"
+  },
+  "homepage": "https://github.com/Raptor-zip/Memorize-Sheet#readme",
+  "devDependencies": {
+    "@types/node": "^25.0.3",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.0"
+  },
+  "dependencies": {
+    "opencv.js": "^1.2.1"
+  }
+}

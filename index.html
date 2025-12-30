@@ -1,26 +1,92 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>赤シート</title>
-    <link rel="stylesheet" href="style.css" />
-    <script src="/program.js"></script>
-  </head>
 
-  <body onload="first_script()">
-    <div id="content">
-      <div id="setting">
-        <button onclick="document.documentElement.requestFullscreen()">
-          全画面
-        </button>
-        <button onclick="memorization_sheet_resize(100,0)">横に大きく</button>
-        <button onclick="memorization_sheet_resize(-100,0)">横に小さく</button>
-        <button onclick="memorization_sheet_resize(0,100)">縦に大きく</button>
-        <button onclick="memorization_sheet_resize(0,-100)">縦に小さく</button>
-        <input id="file" type="file" name="upfile[]" webkitdirectory />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>暗記シート - Memorize Sheet</title>
+  <link rel="stylesheet" href="./src/style.css" />
+</head>
+
+<body>
+  <div id="app">
+    <!-- コントロールパネル -->
+    <div id="control-panel">
+      <h1>暗記シート</h1>
+
+      <!-- ファイル選択 -->
+      <div class="control-group">
+        <label for="file-input">画像ファイルを選択:</label>
+        <input id="file-input" type="file" accept="image/*" multiple webkitdirectory />
       </div>
-      <div id="view"></div>
+
+      <!-- 閾値設定 -->
+      <div class="control-group">
+        <label for="color-threshold">
+          色の範囲: <span id="color-threshold-value">30</span>
+        </label>
+        <input id="color-threshold" type="range" min="5" max="90" value="30" class="slider" />
+        <small>大きいほど似た色も一緒に隠れます</small>
+      </div>
+
+      <div class="control-group">
+        <label for="min-area">
+          最小サイズ: <span id="min-area-value">100</span> ピクセル
+        </label>
+        <input id="min-area" type="range" min="0" max="1000" value="100" step="10" class="slider" />
+        <small>この値より小さいノイズは除外されます</small>
+      </div>
+
+      <!-- スポイトツール -->
+      <div class="control-group">
+        <button id="eyedropper-btn" class="btn btn-primary">
+          🎨 スポイトで色を選択
+        </button>
+        <button id="clear-colors-btn" class="btn btn-secondary">
+          🗑️ 選択色をクリア
+        </button>
+      </div>
+
+      <!-- 選択された色のリスト -->
+      <div class="control-group">
+        <label>選択された色:</label>
+        <div id="color-list"></div>
+      </div>
+
+      <!-- その他のコントロール -->
+      <div class="control-group">
+        <button id="fullscreen-btn" class="btn">
+          🖥️ 全画面表示
+        </button>
+      </div>
+
+      <!-- 使い方 -->
+      <div class="control-group info-box">
+        <h3>使い方:</h3>
+        <ol>
+          <li>画像ファイルを選択します</li>
+          <li>「スポイトで色を選択」をクリックします</li>
+          <li>画像上で消したい色（例：赤）をクリックします</li>
+          <li>その色の部分が透明になって消えます</li>
+          <li>十字のハンドルをドラッグして表示を切り替えます</li>
+          <li>左上と右下：元画像、右上と左下：加工後</li>
+        </ol>
+      </div>
     </div>
-  </body>
+
+    <!-- 画像表示エリア -->
+    <div id="view-container">
+      <div id="view"></div>
+      <!-- ドラッグ可能な十字ハンドル -->
+      <div id="drag-handle">
+        <div class="drag-handle-horizontal"></div>
+        <div class="drag-handle-vertical"></div>
+        <div class="drag-handle-center"></div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
 </html>
