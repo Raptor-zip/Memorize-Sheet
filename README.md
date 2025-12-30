@@ -83,7 +83,3 @@ Memorize-Sheet/
 ├── tsconfig.json            # TypeScript設定
 └── vite.config.ts           # Vite設定
 ```
-
-## ライセンス
-
-ISC
